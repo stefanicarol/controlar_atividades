@@ -102,7 +102,7 @@ public class FormMenu extends javax.swing.JFrame {
 
         jMenu1.setText("CADASTRAR");
 
-        jMenuItem2.setText("Professor");
+        jMenuItem2.setText("PROFESSOR");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem2ActionPerformed(evt);
@@ -110,7 +110,7 @@ public class FormMenu extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem2);
 
-        jMenuItem7.setText("Disciplina");
+        jMenuItem7.setText("DISCIPLINA");
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem7ActionPerformed(evt);
@@ -118,7 +118,7 @@ public class FormMenu extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem7);
 
-        jMenuItem3.setText("Questões");
+        jMenuItem3.setText("QUESTOES");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem3ActionPerformed(evt);
@@ -126,7 +126,7 @@ public class FormMenu extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem3);
 
-        jMenuItem4.setText("Turma");
+        jMenuItem4.setText("TURMA");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem4ActionPerformed(evt);
@@ -134,7 +134,7 @@ public class FormMenu extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem4);
 
-        jMenuItem5.setText("Atividade");
+        jMenuItem5.setText("ATIVIDADE");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem5ActionPerformed(evt);
