@@ -25,9 +25,9 @@ public class FormQuestoes extends javax.swing.JFrame {
        
        
     public FormQuestoes() {
-        initComponents();
+         initComponents();        
+         conteudoDiretonocodigo(); 
          preencheCbx();
-       conteudoDiretonocodigo(); 
     }
 
     FormQuestoes(ArrayList conteudo,ArrayList questao, ArrayList disciplina, ArrayList alternativa) {
@@ -36,8 +36,8 @@ public class FormQuestoes extends javax.swing.JFrame {
          this.alternativa = alternativa;
          this.disciplina = disciplina;
          initComponents(); 
+         conteudoDiretonocodigo(); 
          preencheCbx();
-        conteudoDiretonocodigo(); 
     }
  
     
@@ -48,7 +48,7 @@ public class FormQuestoes extends javax.swing.JFrame {
       conteudo.add(new Conteudo(820,"Herança"));
       conteudo.add(new Conteudo(900,"Conhecer Aluno especifico"));
       conteudo.add(new Conteudo(910,"Conhecendo Conteudos de Materias"));
-      alternativanocodigo();
+       
   }
     
     public void questaonocodigo(){
@@ -62,7 +62,7 @@ public class FormQuestoes extends javax.swing.JFrame {
       alternativa.add(new Alternativa(100,"Classes","Interface","Herança","Polimorfismo","Entidades","C"));
       alternativa.add(new Alternativa(200,"Ciencia da computação","Engenharia de Software","Sistema de Informação","Direito","Farmacia","B"));
       alternativa.add(new Alternativa(300,"Listas Encadeadas","Classes","Entidades","Geometria basica","Calculos Proposicionais","A"));
-      questaonocodigo(); 
+       
   }
      
     

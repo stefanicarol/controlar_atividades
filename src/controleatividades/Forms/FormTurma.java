@@ -5,11 +5,8 @@
  */
 package controleatividades.Forms;
 
-import controleatividades.Class.Alternativa;
-import controleatividades.Class.Conteudo;
 import controleatividades.Class.Disciplina;
 import controleatividades.Class.Professor;
-import controleatividades.Class.Questao;
 import controleatividades.Class.Turma;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -34,7 +31,7 @@ public class FormTurma extends javax.swing.JFrame {
          this.turma = turma;
          initComponents();  
          preencheCbx();
-         turmanocodigo();
+        // turmanocodigo();
     }
 
    
@@ -72,6 +69,8 @@ public class FormTurma extends javax.swing.JFrame {
     
     
         public void preencheCbx(){ 
+        cbxDisciplina.removeAllItems();
+        cbxProfessor.removeAllItems(); 
         for(Disciplina p : disciplina){        
              if(p instanceof Disciplina){ 
                   cbxDisciplina.addItem(((Disciplina)p).getNome()); 
@@ -106,6 +105,12 @@ public class FormTurma extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        cbxDisciplina.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxDisciplinaActionPerformed(evt);
+            }
+        });
 
         jLabel23.setText("DISCIPLINA");
 
@@ -195,31 +200,27 @@ public class FormTurma extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(161, 161, 161)
-                        .addComponent(jLabel1))
+                        .addContainerGap()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(126, 126, 126)
-                        .addComponent(btCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(138, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(174, 174, 174)
+                        .addComponent(jLabel1)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(127, 127, 127))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(62, 62, 62)
+                .addGap(30, 30, 30)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 246, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(btCadastrar)
-                .addGap(241, 241, 241))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(108, 108, 108)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(337, Short.MAX_VALUE)))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         pack();
@@ -229,6 +230,10 @@ public class FormTurma extends javax.swing.JFrame {
     private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
         cadastrar();
     }//GEN-LAST:event_btCadastrarActionPerformed
+
+    private void cbxDisciplinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxDisciplinaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxDisciplinaActionPerformed
 
     /**
      * @param args the command line arguments
