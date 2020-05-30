@@ -19,33 +19,21 @@ public class FormDisciplina extends javax.swing.JFrame {
     
     public FormDisciplina() {
        initComponents();
-       iniserirNoCodigo();
+      
     }
     public FormDisciplina(ArrayList disciplinas) {
         this.disciplina = disciplinas;
         initComponents(); 
-        iniserirNoCodigo();
-    }
-
-    
-     public void iniserirNoCodigo(){
-        disciplina.add(new Disciplina(1,"LPOO",50 ));
-        disciplina.add(new Disciplina(2,"BD2",55 ));
-        disciplina.add(new Disciplina(3,"LPOO",50 ));
-        disciplina.add(new Disciplina(4,"BD2",55 ));
-        disciplina.add(new Disciplina (4,"Conhece Aluno",55) );
-        disciplina.add(new Disciplina(6,"Conteudos de Materias",8));
        
-     }
-    
- 
+    }
+  
       public void cadastrar(){
              int cod = Integer.parseInt(tfCod.getText());
              int cred = Integer.parseInt(tfCredito.getText());
              String nome = tfNome.getText();
                         
             disciplina.add(new Disciplina(cod, nome, cred));
-            JOptionPane.showMessageDialog(null, "Cadastrado feito com SUCESSO!");        
+            JOptionPane.showMessageDialog(null, "DISCIPLINA" +nome+ " CADASTRADA SUCESSO!");        
             System.out.println(disciplina.toString());
     }
    

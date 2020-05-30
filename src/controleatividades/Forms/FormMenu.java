@@ -31,8 +31,47 @@ public class FormMenu extends javax.swing.JFrame {
      */
     public FormMenu() {
         initComponents();
+        inserir();
     }
 
+    
+     public void inserir(){
+     professores.add(new Professor (153,"Fabiano","MESTRE"));
+     professores.add(new Professor(828, "Jackson", "Doutor"));
+     professores.add(new Professor (600, "Carlos","LPOO"));
+     professores.add(new Professor (453,"Ana Maria","Mestra"));
+     
+     disciplina.add(new Disciplina(1,"LPOO",50 ));
+     disciplina.add(new Disciplina(2,"BD II",55 ));
+     disciplina.add(new Disciplina(3,"AP I",50 ));
+     disciplina.add(new Disciplina(4,"BD I",55 ));
+     disciplina.add(new Disciplina (4,"Conhece Aluno",55) );
+     disciplina.add(new Disciplina(6,"Conteudos de Materias",8));
+     
+     conteudo.add(new Conteudo(1234,"Polimorfismo"));
+     conteudo.add(new Conteudo(220,"Classes"));
+     conteudo.add(new Conteudo(350,"Interface Gráfica"));
+     conteudo.add(new Conteudo(820,"Herança"));
+     conteudo.add(new Conteudo(900,"Conhecer Aluno especifico"));
+     conteudo.add(new Conteudo(910,"Conhecendo Conteudos de Materias")); 
+     
+     alternativa.add(new Alternativa(100,"Classes","Interface","Herança","Polimorfismo","Entidades","C"));
+     alternativa.add(new Alternativa(200,"Ciencia da computação","Engenharia de Software","Sistema de Informação","Direito","Farmacia","B"));
+     alternativa.add(new Alternativa(300,"Listas Encadeadas","Classes","Entidades","Geometria basica","Calculos Proposicionais","A")); 
+     
+     questao.add(new Questao(10,"Qual o nome que se dar para uma clase que herda outra?",disciplina.get(0),conteudo.get(3),alternativa.get(0)));
+     questao.add(new Questao(20,"Qual Curso que o Riquelmmy Na Batera Cursa?",disciplina.get(2),conteudo.get(4),alternativa.get(1)));
+     questao.add(new Questao(30,"Das Alternativas abaixo qual dos conteudos Possui em Est. de Dados?",disciplina.get(3),conteudo.get(5),alternativa.get(2)));
+     
+     turma.add(new Turma(700,disciplina.get(0),"2020/1","2N",professores.get(2)));
+     turma.add(new Turma(500,disciplina.get(4),"2020/1","5N",professores.get(1)));
+     turma.add(new Turma(400,disciplina.get(3),"2020/1","6N",professores.get(0)));
+     
+     }
+    
+    
+
+  
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

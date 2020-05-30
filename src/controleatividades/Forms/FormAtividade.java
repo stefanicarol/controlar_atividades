@@ -29,7 +29,8 @@ public class FormAtividade extends javax.swing.JFrame {
        
     public FormAtividade() {
         initComponents();
-        preencheCombos(); 
+        preencheComboTurma();
+        preencheComboAtividade(); 
         preencheCombosQuestoes();
         preencheComboConteudo();
     }
@@ -40,8 +41,9 @@ public class FormAtividade extends javax.swing.JFrame {
          this.alternativa = alternativa;
          this.turma = turma;
          this.atividade = atividade;
-         initComponents();  
-         preencheCombos();
+         initComponents(); 
+         preencheComboTurma();
+         preencheComboAtividade();
          preencheCombosQuestoes();
          preencheComboConteudo();
     }
@@ -57,7 +59,7 @@ public class FormAtividade extends javax.swing.JFrame {
                     atividade.add(new Atividade(cod, dataInicio, dataFim, tur));
                     cod++;  
                  }
-              } JOptionPane.showMessageDialog(null, "Cadastrado feito com SUCESSO!"); 
+              } JOptionPane.showMessageDialog(null, "ATIVIDADE " +(cod - 1) + " CADASTRADA COM SUCESSO!"); 
           }  
      
      public void inserir(){
@@ -69,24 +71,21 @@ public class FormAtividade extends javax.swing.JFrame {
             } 
         }
         a.setQuestoes(q);
-       JOptionPane.showMessageDialog(null, "Inserção feita com SUCESSO!");    
+       JOptionPane.showMessageDialog(null, "QUESTÃO INSERIDA COM SUCESSO NA ATIVADADE NÚMERO "+a.getCod());    
        System.out.println(a.getQuestoes());
      }
   
-
-      
-     
-    
-     public void preencheCombos(){ 
-       cbxTurma.removeAllItems();
-       cbxAtividade.removeAllItems();
+   
+    public void preencheComboTurma(){ 
          for(Turma p : turma){  
            cbxTurma.addItem(((Turma)p).getNumero()+"");  
-        }  
+        } 
+     }
+     public void preencheComboAtividade(){ 
+          cbxAtividade.removeAllItems();         
           for(Atividade p : atividade){  
            cbxAtividade.addItem(((Atividade)p).getCod()+"");  
-        }
-        
+        }        
      }
       public void preencheComboConteudo(){  
            
@@ -329,13 +328,14 @@ public class FormAtividade extends javax.swing.JFrame {
 
     private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
        cadastrarAtividade(); 
-       preencheCombos();
+       cbxAtividade.removeAllItems();
+        preencheComboAtividade();
        
     }//GEN-LAST:event_btCadastrarActionPerformed
 
     private void cbxAtividadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxAtividadeActionPerformed
       
-       preencheCombos();
+       
     }//GEN-LAST:event_cbxAtividadeActionPerformed
 
     private void cbxQuestoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxQuestoesActionPerformed
@@ -343,9 +343,7 @@ public class FormAtividade extends javax.swing.JFrame {
     }//GEN-LAST:event_cbxQuestoesActionPerformed
 
     private void cbxConteudoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxConteudoActionPerformed
-        cbxConteudo.removeAllItems();
-        cbxQuestoes.removeAllItems(); 
-        preencheComboConteudo(); 
+        cbxQuestoes.removeAllItems();  
         preencheCombosQuestoes();
     }//GEN-LAST:event_cbxConteudoActionPerformed
 
@@ -354,9 +352,7 @@ public class FormAtividade extends javax.swing.JFrame {
     }//GEN-LAST:event_btInserirActionPerformed
 
     private void cbxTurmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxTurmaActionPerformed
-       cbxTurma.removeAllItems();
-       cbxAtividade.removeAllItems();
-       preencheCombos();
+     
     }//GEN-LAST:event_cbxTurmaActionPerformed
 
     /**
