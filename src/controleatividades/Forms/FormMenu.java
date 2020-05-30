@@ -133,7 +133,7 @@ public class FormMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        FormQuestoes formquestoes = new FormQuestoes(conteudo, questao, alternativa, disciplina);
+        FormQuestoes formquestoes = new FormQuestoes(conteudo, questao, disciplina, alternativa);
         formquestoes.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
@@ -143,12 +143,12 @@ public class FormMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        FormTurma formturma = new FormTurma();
+        FormTurma formturma = new FormTurma(professores, disciplina, turma);
         formturma.setVisible(true);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        FormAtividade formatividade = new FormAtividade();
+        FormAtividade formatividade = new FormAtividade(conteudo, questao, turma, alternativa, atividade);
         formatividade.setVisible(true);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 

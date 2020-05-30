@@ -1,16 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controleatividades;
-
 import java.util.ArrayList;
 
-/**
- *
- * @author stefa
- */
 public class Atividade {
    private int cod;
    private Turma turma;
@@ -22,14 +12,14 @@ public class Atividade {
         questoes = new ArrayList();
     }
 
-    public Atividade(int cod, Turma turma, String dataI, String dataF) {
+    public Atividade(int cod, String dataI, String dataF, Turma turma) {
         this.cod = cod;
         this.turma = turma;
         this.dataI = dataI;
         this.dataF = dataF;
         questoes = new ArrayList();
-    }
-
+    } 
+    
     public int getCod() {
         return cod;
     }

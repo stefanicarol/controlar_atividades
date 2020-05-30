@@ -1,6 +1,5 @@
 package controleatividades;
-import java.util.ArrayList;
-/**
+ /**
  *
  * @author stefa
  */
@@ -9,20 +8,20 @@ public class Questao {
     private String enunciado;
     private Disciplina disciplina;
     private Conteudo conteudo;
-    private Alternativa alternativas;
+    private Alternativa alternativa;
+    
 
     public Questao() {
         
     }
 
-    public Questao(int codQ, String enunciado, Disciplina disciplina, Conteudo conteudo, Alternativa alternativas) {
+    public Questao(int codQ, String enunciado, Disciplina disciplina, Conteudo conteudo, Alternativa alternativa) {
         this.codQ = codQ;
         this.enunciado = enunciado;
         this.disciplina = disciplina;
         this.conteudo = conteudo;
-        this.alternativas = alternativas;
-    }
- 
+        this.alternativa = alternativa;
+    } 
  
     public int getCodQ() {
         return codQ;
@@ -53,16 +52,20 @@ public class Questao {
     }
 
     public Alternativa getAlternativas() {
-        return alternativas;
+        return alternativa;
     }
 
     public void setAlternativas(Alternativa alternativas) {
-        this.alternativas = alternativas;
+        this.alternativa = alternativas;
     }
-      
+    
+//    public void alternativa(int codA, String a, String b, String c, String d, String e, String certa){
+//        alternativa.add(new Alternativa(codA,a,b,c,d,e,certa));
+//    }
+       
     @Override
     public String toString() {
-        return "Questao{" + "codQ=" + codQ + ", enunciado=" + enunciado + ", disciplina=" + disciplina + ", alternativa=" + alternativas + ", conteudo=" + conteudo +'}';
+        return "Questao{" + "codQ=" + codQ + ", enunciado=" + enunciado + ", disciplina=" + disciplina + ", alternativa=" + alternativa + ", conteudo=" + conteudo +'}';
     }  
     
 }

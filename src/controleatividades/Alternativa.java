@@ -80,6 +80,5 @@ public class Alternativa {
     @Override
     public String toString() {
         return "Alternativa{" + "codA=" + codA + ", a=" + a + ", b=" + b + ", c=" + c + ", d=" + d + ", e=" + e + ", certa=" + certa + '}';
-    }
-  
+    } 
 }

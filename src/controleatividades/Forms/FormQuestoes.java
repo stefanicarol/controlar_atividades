@@ -15,19 +15,20 @@ import java.util.ArrayList;
  *
  * @author stefa
  */
-public class FormQuestoes extends javax.swing.JFrame {
-
+public class FormQuestoes extends javax.swing.JFrame { 
        private ArrayList<Conteudo> conteudo;
        private ArrayList<Questao> questao;
        private ArrayList<Alternativa> alternativa;
-        private ArrayList<Disciplina> disciplina;
+       private ArrayList<Disciplina> disciplina;
+       int cod =1;
+       
        
     public FormQuestoes() {
         initComponents();
         preencheCbx();
     }
 
-    FormQuestoes(ArrayList conteudo,ArrayList questao,ArrayList alternativa, ArrayList disciplina) {
+    FormQuestoes(ArrayList conteudo,ArrayList questao, ArrayList disciplina, ArrayList alternativa) {
          this.conteudo = conteudo;
          this.questao = questao;
          this.alternativa = alternativa;
@@ -35,20 +36,20 @@ public class FormQuestoes extends javax.swing.JFrame {
          initComponents();  
     }
 
+   
+
      public void cadastrarConteudo(){
          int codC = Integer.parseInt(tfcod.getText());
          String descricao = tfDescricao.getText();
          conteudo.add(new Conteudo(codC, descricao));
          System.out.println(conteudo);
      }
-     
-    
+      
      public void cadastrarQuestao(){
          Disciplina disc = null; 
          Conteudo cont = null; 
          int codQ = Integer.parseInt(tfCodQ.getText());
-         String enu = tfEnunciado.getText();
-         
+         String enu = tfEnunciado.getText(); 
         
           for(Disciplina d : disciplina){
              if(d.getNome().equals(cbxDisciplina.getSelectedItem())){
@@ -65,44 +66,50 @@ public class FormQuestoes extends javax.swing.JFrame {
           String b = tfB.getText();
           String c = tfC.getText();
           String d = tfD.getText();
-          String e = tfE.getText();
+          String e = tfE.getText(); 
           
           
-           if(rbA.isSelected()){ 
-                 alternativa.add(new Alternativa(1,a,b,c,d,e,"A")); 
-                 questao.add(new Questao(1, enu, disc, cont, alternativa.get(codQ)));
-           }else if (rbB.isSelected()){  
-               alternativa.add(new Alternativa(1,a,b,c,d,e,"B")); 
-               questao.add(new Questao(1, enu, disc, cont, alternativa.get(codQ)));
-           }else if (rbC.isSelected()){  
-               alternativa.add(new Alternativa(1,a,b,c,d,e,"C"));
-               questao.add(new Questao(1, enu, disc, cont, alternativa.get(codQ)));
-           }else if (rbD.isSelected()){  
-               alternativa.add(new Alternativa(1,a,b,c,d,e,"D"));
-               questao.add(new Questao(1, enu, disc, cont, alternativa.get(codQ)));
-           }else if (rbE.isSelected()){  
-               alternativa.add(new Alternativa(1,a,b,c,d,e,"E"));
-               questao.add(new Questao(codQ, enu, disc, cont, alternativa.get(codQ)));
-           }  
+          
+       
+         
+//           if(rbA.isSelected()){  
+//                questao.add(new Questao(codQ, enu, disc, cont)); 
+//            questao.get(codQ).alternativa(cod,a,b,c,d,e,"A");
+//               questao.add(new Questao(codQ, enu, disc, cont, alternativa.get(cod)));
+//           }
+//           
+//           else if (rbB.isSelected()){  
+             
+              Alternativa alt = new Alternativa(cod,a,b,c,d,e,"B");
+              alternativa.add(alt);
+               
+              questao.add(new Questao(codQ, enu, disc, cont, alt));
+//           }else if (rbC.isSelected()){  
+//               alternativa.add(new Alternativa(cod,a,b,c,d,e,"C"));
+//               questao.add(new Questao(cod, enu, disc, cont, alternativa.get(cod)));
+//           }else if (rbD.isSelected()){  
+//               alternativa.add(new Alternativa(cod,a,b,c,d,e,"D"));
+//               questao.add(new Questao(codQ, enu, disc, cont, alternativa.get(cod)));
+//           }else if (rbE.isSelected()){  
+//               alternativa.add(new Alternativa(cod,a,b,c,d,e,"E"));
+//               questao.add(new Questao(codQ, enu, disc, cont, alternativa.get(cod)));
+//           }  
            System.out.println(questao);
+           cod++;
      }
      
      
-      public void preencheCbx(){
-          
-//    for(Object p : disciplina){        
-//         if(p instanceof Disciplina){ 
-//          if(((Disciplina) p).getNome().equals(cbxDisciplina.getSelectedItem().toString())){     
-//              cbxDisciplina.addItem(((Disciplina)p).getNome());                   
-//           }  
-//         }
-//       }   
-    for(Conteudo p : conteudo){   
-         if(p instanceof Conteudo){ 
-           cbxConteudo.addItem(((Conteudo)p).getDescricao());  
-           cbxDisciplina.addItem(((Conteudo)p).getDescricao());  
-       } 
-      }
+      public void preencheCbx(){ 
+        for(Disciplina p : disciplina){        
+             if(p instanceof Disciplina){ 
+                  cbxDisciplina.addItem(((Disciplina)p).getNome()); 
+             }
+           }   
+        for(Conteudo p : conteudo){   
+             if(p instanceof Conteudo){ 
+               cbxConteudo.addItem(((Conteudo)p).getDescricao()); 
+            } 
+        }
     }
      
     @SuppressWarnings("unchecked")
@@ -116,7 +123,6 @@ public class FormQuestoes extends javax.swing.JFrame {
         tfDescricao = new javax.swing.JTextField();
         DESCRIAÇÃO = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        tfCodQ = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         cbxDisciplina = new javax.swing.JComboBox<>();
@@ -125,6 +131,7 @@ public class FormQuestoes extends javax.swing.JFrame {
         tfEnunciado = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         btC = new javax.swing.JButton();
+        tfCodQ = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
         tfA = new javax.swing.JTextField();
         tfB = new javax.swing.JTextField();
@@ -157,8 +164,6 @@ public class FormQuestoes extends javax.swing.JFrame {
 
         jLabel7.setText("Questão:");
 
-        tfCodQ.setText(" ");
-
         jLabel8.setText("CÓDIGO");
 
         jLabel9.setText("DISCIPLINA");
@@ -179,42 +184,43 @@ public class FormQuestoes extends javax.swing.JFrame {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tfcod, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(DESCRIAÇÃO)
                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addGap(18, 18, 18)
+                                .addComponent(tfDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                                .addComponent(btC))))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel17)
+                            .addComponent(tfEnunciado, javax.swing.GroupLayout.PREFERRED_SIZE, 448, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tfCodQ, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel8))
-                                .addGap(18, 18, 18)
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addComponent(jLabel8)
+                                        .addGap(39, 39, 39))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                                        .addComponent(tfCodQ, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)))
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(cbxDisciplina, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(27, 27, 27)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cbxConteudo, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tfcod, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel6))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(DESCRIAÇÃO)
-                                    .addGroup(jPanel5Layout.createSequentialGroup()
-                                        .addComponent(tfDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btC))))))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addContainerGap(114, Short.MAX_VALUE)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel17)
-                            .addComponent(tfEnunciado, javax.swing.GroupLayout.PREFERRED_SIZE, 448, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(cbxConteudo, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(30, 30, 30))
         );
         jPanel5Layout.setVerticalGroup(
@@ -236,15 +242,16 @@ public class FormQuestoes extends javax.swing.JFrame {
                     .addComponent(jLabel9)
                     .addComponent(jLabel10))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(tfCodQ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbxDisciplina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbxConteudo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel7)
+                        .addComponent(cbxDisciplina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cbxConteudo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfCodQ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(jLabel17)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tfEnunciado, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tfEnunciado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 

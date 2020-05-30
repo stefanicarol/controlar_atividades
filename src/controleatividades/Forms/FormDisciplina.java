@@ -19,12 +19,12 @@ public class FormDisciplina extends javax.swing.JFrame {
     
     public FormDisciplina() {
         initComponents();
-        iniserirNoCodigo();
+       // iniserirNoCodigo();
     }
     public FormDisciplina(ArrayList disciplinas) {
         this.disciplina = disciplinas;
         initComponents(); 
-        iniserirNoCodigo();
+       // iniserirNoCodigo();
     }
 
    
@@ -60,8 +60,8 @@ public class FormDisciplina extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         tfNome = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
-        tfCredito = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
+        tfCredito = new javax.swing.JTextField();
         tbCadastrar = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -73,8 +73,6 @@ public class FormDisciplina extends javax.swing.JFrame {
         tfNome.setText(" ");
 
         jLabel20.setText("NOME DISCIPLINA");
-
-        tfCredito.setText(" ");
 
         jLabel21.setText("CRÉDITOS");
 
@@ -90,13 +88,13 @@ public class FormDisciplina extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(tfCredito, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel21)))
+                        .addComponent(jLabel21))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tfCredito, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(38, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -150,6 +148,7 @@ public class FormDisciplina extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void tbCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbCadastrarActionPerformed
