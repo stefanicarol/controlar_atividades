@@ -10,6 +10,7 @@ import controleatividades.Class.Conteudo;
 import controleatividades.Class.Disciplina;
 import controleatividades.Class.Questao;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -25,7 +26,8 @@ public class FormQuestoes extends javax.swing.JFrame {
        
     public FormQuestoes() {
         initComponents();
-        preencheCbx();
+         preencheCbx();
+       conteudoDiretonocodigo(); 
     }
 
     FormQuestoes(ArrayList conteudo,ArrayList questao, ArrayList disciplina, ArrayList alternativa) {
@@ -33,9 +35,37 @@ public class FormQuestoes extends javax.swing.JFrame {
          this.questao = questao;
          this.alternativa = alternativa;
          this.disciplina = disciplina;
-         initComponents();  
+         initComponents(); 
+         preencheCbx();
+        conteudoDiretonocodigo(); 
     }
  
+    
+    public void conteudoDiretonocodigo(){
+      conteudo.add(new Conteudo(1234,"Polimorfismo"));
+      conteudo.add(new Conteudo(220,"Classes"));
+      conteudo.add(new Conteudo(350,"Interface Gráfica"));
+      conteudo.add(new Conteudo(820,"Herança"));
+      conteudo.add(new Conteudo(900,"Conhecer Aluno especifico"));
+      conteudo.add(new Conteudo(910,"Conhecendo Conteudos de Materias"));
+      alternativanocodigo();
+  }
+    
+    public void questaonocodigo(){
+      questao.add(new Questao(10,"Qual o nome que se dar para uma clase que herda outra?",disciplina.get(0),conteudo.get(3),alternativa.get(0)));
+      questao.add(new Questao(20,"Qual Curso que o Riquelmmy Na Batera Cursa?",disciplina.get(2),conteudo.get(4),alternativa.get(1)));
+      questao.add(new Questao(30,"Das Alternativas abaixo qual dos conteudos Possui em Est. de Dados?",disciplina.get(3),conteudo.get(5),alternativa.get(2)));
+      
+  }
+    
+   public void alternativanocodigo(){
+      alternativa.add(new Alternativa(100,"Classes","Interface","Herança","Polimorfismo","Entidades","C"));
+      alternativa.add(new Alternativa(200,"Ciencia da computação","Engenharia de Software","Sistema de Informação","Direito","Farmacia","B"));
+      alternativa.add(new Alternativa(300,"Listas Encadeadas","Classes","Entidades","Geometria basica","Calculos Proposicionais","A"));
+      questaonocodigo(); 
+  }
+     
+    
      public void cadastrarConteudo(){
          int codC = Integer.parseInt(tfcod.getText());
          String descricao = tfDescricao.getText();
@@ -89,6 +119,8 @@ public class FormQuestoes extends javax.swing.JFrame {
            }  
            System.out.println(questao);
            cod++;
+            JOptionPane.showMessageDialog(null, "Cadastrado feito com SUCESSO!");        
+             
      } 
      
       public void preencheCbx(){ 
@@ -413,6 +445,8 @@ public class FormQuestoes extends javax.swing.JFrame {
     }//GEN-LAST:event_btCadastrarActionPerformed
 
     private void btCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCActionPerformed
+        cbxDisciplina.removeAllItems(); 
+        cbxConteudo.removeAllItems(); 
         cadastrarConteudo();
         preencheCbx();
     }//GEN-LAST:event_btCActionPerformed

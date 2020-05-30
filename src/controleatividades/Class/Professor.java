@@ -16,7 +16,7 @@ public class Professor {
     public Professor() {
     }
 
-    public Professor(int cgu, String titulacao, String nome) {
+    public Professor(int cgu,String nome, String titulacao) {
         this.cgu = cgu;
         this.titulacao = titulacao;
         this.nome = nome;

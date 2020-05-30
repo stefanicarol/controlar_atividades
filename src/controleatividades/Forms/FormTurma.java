@@ -33,9 +33,18 @@ public class FormTurma extends javax.swing.JFrame {
          this.disciplina = disciplina; 
          this.turma = turma;
          initComponents();  
-          preencheCbx();
+         preencheCbx();
+         turmanocodigo();
     }
 
+   
+     
+    public void turmanocodigo(){
+        turma.add(new Turma(700,disciplina.get(0),"2020/1","2N",professor.get(2)));
+        turma.add(new Turma(500,disciplina.get(4),"2020/1","5N",professor.get(1)));
+        turma.add(new Turma(400,disciplina.get(3),"2020/1","6N",professor.get(0)));
+    }
+     
      
     public void cadastrar(){
         int numero = (Integer.parseInt(tfNum.getText()));

@@ -18,20 +18,23 @@ public class FormDisciplina extends javax.swing.JFrame {
     private ArrayList<Disciplina> disciplina;
     
     public FormDisciplina() {
-        initComponents();
-       // iniserirNoCodigo();
+       initComponents();
+       iniserirNoCodigo();
     }
     public FormDisciplina(ArrayList disciplinas) {
         this.disciplina = disciplinas;
         initComponents(); 
-       // iniserirNoCodigo();
+        iniserirNoCodigo();
     }
 
-   
-  
+    
      public void iniserirNoCodigo(){
         disciplina.add(new Disciplina(1,"LPOO",50 ));
-         disciplina.add(new Disciplina(2,"BD2",55 ));
+        disciplina.add(new Disciplina(2,"BD2",55 ));
+        disciplina.add(new Disciplina(3,"LPOO",50 ));
+        disciplina.add(new Disciplina(4,"BD2",55 ));
+        disciplina.add(new Disciplina (4,"Conhece Aluno",55) );
+        disciplina.add(new Disciplina(6,"Conteudos de Materias",8));
        
      }
     

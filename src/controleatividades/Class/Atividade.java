@@ -56,8 +56,8 @@ public class Atividade {
         return questoes;
     }
 
-    public void setQuestoes(ArrayList<Questao> questoes) {
-        this.questoes = questoes;
+    public void setQuestoes(Object questoes) {
+        this.questoes.add((Questao) questoes);
     }
 
     @Override

@@ -19,12 +19,23 @@ public class FormProfessor extends javax.swing.JFrame {
     
     public FormProfessor() {
         initComponents();
+        profesordiretonocodigo();
     }
 
     public FormProfessor(ArrayList professores) {
         this.professor = professores;
         initComponents();  
+        profesordiretonocodigo();
     }
+    
+    
+    
+    public void profesordiretonocodigo(){
+     professor.add(new Professor (153,"Fabiano","MESTRE"));
+     professor.add(new Professor(828, "Jackson", "Doutor"));
+     professor.add(new Professor (600, "Carlos","LPOO"));
+     professor.add(new Professor (453,"Ana Maria","Mestra"));
+  }
     
     public void cadastrar(){
             int cgu = Integer.parseInt(tfCgu.getText());
