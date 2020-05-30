@@ -1,4 +1,4 @@
-package controleatividades;
+package controleatividades.Class;
 import java.util.ArrayList;
 
 public class Atividade {

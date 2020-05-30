@@ -5,10 +5,10 @@
  */
 package controleatividades.Forms;
 
-import controleatividades.Alternativa;
-import controleatividades.Conteudo;
-import controleatividades.Disciplina;
-import controleatividades.Questao;
+import controleatividades.Class.Alternativa;
+import controleatividades.Class.Conteudo;
+import controleatividades.Class.Disciplina;
+import controleatividades.Class.Questao;
 import java.util.ArrayList;
 
 /**
@@ -35,9 +35,7 @@ public class FormQuestoes extends javax.swing.JFrame {
          this.disciplina = disciplina;
          initComponents();  
     }
-
-   
-
+ 
      public void cadastrarConteudo(){
          int codC = Integer.parseInt(tfcod.getText());
          String descricao = tfDescricao.getText();
@@ -67,37 +65,31 @@ public class FormQuestoes extends javax.swing.JFrame {
           String c = tfC.getText();
           String d = tfD.getText();
           String e = tfE.getText(); 
-          
-          
-          
-       
-         
-//           if(rbA.isSelected()){  
-//                questao.add(new Questao(codQ, enu, disc, cont)); 
-//            questao.get(codQ).alternativa(cod,a,b,c,d,e,"A");
-//               questao.add(new Questao(codQ, enu, disc, cont, alternativa.get(cod)));
-//           }
-//           
-//           else if (rbB.isSelected()){  
-             
+     
+           if(rbA.isSelected()){  
+              Alternativa alt = new Alternativa(cod,a,b,c,d,e,"A");
+              alternativa.add(alt); 
+              questao.add(new Questao(codQ, enu, disc, cont, alt)); 
+           }else if (rbB.isSelected()){   
               Alternativa alt = new Alternativa(cod,a,b,c,d,e,"B");
-              alternativa.add(alt);
-               
+              alternativa.add(alt); 
               questao.add(new Questao(codQ, enu, disc, cont, alt));
-//           }else if (rbC.isSelected()){  
-//               alternativa.add(new Alternativa(cod,a,b,c,d,e,"C"));
-//               questao.add(new Questao(cod, enu, disc, cont, alternativa.get(cod)));
-//           }else if (rbD.isSelected()){  
-//               alternativa.add(new Alternativa(cod,a,b,c,d,e,"D"));
-//               questao.add(new Questao(codQ, enu, disc, cont, alternativa.get(cod)));
-//           }else if (rbE.isSelected()){  
-//               alternativa.add(new Alternativa(cod,a,b,c,d,e,"E"));
-//               questao.add(new Questao(codQ, enu, disc, cont, alternativa.get(cod)));
-//           }  
+           }else if (rbC.isSelected()){  
+              Alternativa alt = new Alternativa(cod,a,b,c,d,e,"C");
+              alternativa.add(alt); 
+              questao.add(new Questao(codQ, enu, disc, cont, alt)); 
+           }else if (rbD.isSelected()){  
+              Alternativa alt = new Alternativa(cod,a,b,c,d,e,"D");
+              alternativa.add(alt); 
+              questao.add(new Questao(codQ, enu, disc, cont, alt)); 
+           }else if (rbE.isSelected()){  
+              Alternativa alt = new Alternativa(cod,a,b,c,d,e,"E");
+              alternativa.add(alt); 
+              questao.add(new Questao(codQ, enu, disc, cont, alt)); 
+           }  
            System.out.println(questao);
            cod++;
-     }
-     
+     } 
      
       public void preencheCbx(){ 
         for(Disciplina p : disciplina){        
@@ -116,6 +108,7 @@ public class FormQuestoes extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel5 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         tfcod = new javax.swing.JTextField();
@@ -277,14 +270,19 @@ public class FormQuestoes extends javax.swing.JFrame {
 
         jLabel16.setText("E");
 
+        buttonGroup1.add(rbA);
         rbA.setText("Certa");
 
+        buttonGroup1.add(rbB);
         rbB.setText("Certa");
 
+        buttonGroup1.add(rbC);
         rbC.setText("Certa");
 
+        buttonGroup1.add(rbD);
         rbD.setText("Certa");
 
+        buttonGroup1.add(rbE);
         rbE.setText("Certa");
 
         jLabel12.setText("ALTERNATIVAS");
@@ -458,6 +456,7 @@ public class FormQuestoes extends javax.swing.JFrame {
     private javax.swing.JLabel DESCRIAÇÃO;
     private javax.swing.JButton btC;
     private javax.swing.JButton btCadastrar;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cbxConteudo;
     private javax.swing.JComboBox<String> cbxDisciplina;
     private javax.swing.JLabel jLabel1;

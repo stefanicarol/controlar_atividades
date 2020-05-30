@@ -5,6 +5,7 @@
  */
 package controleatividades;
 
+import controleatividades.Class.Professor;
 import java.util.ArrayList;
 
 /**

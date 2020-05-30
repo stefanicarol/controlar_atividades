@@ -1,4 +1,4 @@
-package controleatividades;
+package controleatividades.Class;
 public class Alternativa {
     private int codA;
     private String a;

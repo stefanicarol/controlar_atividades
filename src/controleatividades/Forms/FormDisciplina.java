@@ -5,7 +5,7 @@
  */
 package controleatividades.Forms;
 
-import controleatividades.Disciplina;
+import controleatividades.Class.Disciplina;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 

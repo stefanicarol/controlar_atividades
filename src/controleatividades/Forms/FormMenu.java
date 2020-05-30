@@ -5,13 +5,13 @@
  */
 package controleatividades.Forms;
 
-import controleatividades.Alternativa;
-import controleatividades.Atividade;
-import controleatividades.Conteudo;
-import controleatividades.Disciplina;
-import controleatividades.Professor;
-import controleatividades.Questao;
-import controleatividades.Turma;
+import controleatividades.Class.Alternativa;
+import controleatividades.Class.Atividade;
+import controleatividades.Class.Conteudo;
+import controleatividades.Class.Disciplina;
+import controleatividades.Class.Professor;
+import controleatividades.Class.Questao;
+import controleatividades.Class.Turma;
 import java.util.ArrayList;
 
 /**
@@ -47,8 +47,8 @@ public class FormMenu extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
@@ -70,14 +70,6 @@ public class FormMenu extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem2);
 
-        jMenuItem3.setText("Questões");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem3);
-
         jMenuItem7.setText("Disciplina");
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,6 +77,14 @@ public class FormMenu extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jMenuItem7);
+
+        jMenuItem3.setText("Questões");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem3);
 
         jMenuItem4.setText("Turma");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {

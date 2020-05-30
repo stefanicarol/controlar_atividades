@@ -5,12 +5,13 @@
  */
 package controleatividades.Forms;
 
-import controleatividades.Alternativa;
-import controleatividades.Atividade;
-import controleatividades.Conteudo;
-import controleatividades.Disciplina;
-import controleatividades.Questao;
-import controleatividades.Turma;
+import controleatividades.Class.Alternativa;
+import controleatividades.Class.Atividade;
+import controleatividades.Class.Conteudo;
+import controleatividades.Class.Disciplina;
+import controleatividades.Class.Professor;
+import controleatividades.Class.Questao;
+import controleatividades.Class.Turma;
 import java.util.ArrayList;
 
 /**
@@ -95,7 +96,13 @@ public class FormAtividade extends javax.swing.JFrame {
        } 
     }
       
-      
+      public void preencheCbx(){ 
+        for(Turma p : turma){        
+             if(p instanceof Turma){ 
+//                  cbxTurmaAtividade.addItem(((Turma)p).getNumero().toString()); 
+             }
+        }   
+    }  
       
       
 

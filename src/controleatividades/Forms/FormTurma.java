@@ -5,12 +5,12 @@
  */
 package controleatividades.Forms;
 
-import controleatividades.Alternativa;
-import controleatividades.Conteudo;
-import controleatividades.Disciplina;
-import controleatividades.Professor;
-import controleatividades.Questao;
-import controleatividades.Turma;
+import controleatividades.Class.Alternativa;
+import controleatividades.Class.Conteudo;
+import controleatividades.Class.Disciplina;
+import controleatividades.Class.Professor;
+import controleatividades.Class.Questao;
+import controleatividades.Class.Turma;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -25,6 +25,7 @@ public class FormTurma extends javax.swing.JFrame {
       
     public FormTurma() {
         initComponents();
+        preencheCbx();
     }
 
      FormTurma(ArrayList professor,ArrayList disciplina,ArrayList turma) {
@@ -32,6 +33,7 @@ public class FormTurma extends javax.swing.JFrame {
          this.disciplina = disciplina; 
          this.turma = turma;
          initComponents();  
+          preencheCbx();
     }
 
      
@@ -58,6 +60,21 @@ public class FormTurma extends javax.swing.JFrame {
          System.out.println(disciplina.toString());
                 
     }
+    
+    
+        public void preencheCbx(){ 
+        for(Disciplina p : disciplina){        
+             if(p instanceof Disciplina){ 
+                  cbxDisciplina.addItem(((Disciplina)p).getNome()); 
+             }
+           }   
+        for(Professor p : professor){   
+             if(p instanceof Professor){ 
+               cbxProfessor.addItem(((Professor)p).getNome()); 
+            } 
+        }
+    }
+     
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
