@@ -14,6 +14,21 @@ import java.util.ArrayList;
 public class Conteudo {
     private int cod;
     private String descricao;
+    private Disciplina disciplina;
+
+    public Disciplina getDisciplina() {
+        return disciplina;
+    }
+
+    public void setDisciplina(Disciplina disciplina) {
+        this.disciplina = disciplina;
+    }
+
+    public Conteudo(int cod, String descricao, Disciplina disciplina) {
+        this.cod = cod;
+        this.descricao = descricao;
+        this.disciplina = disciplina;
+    }
     
 
     public Conteudo() {

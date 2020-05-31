@@ -8,6 +8,7 @@ package controleatividades.Forms;
 import controleatividades.Class.Alternativa;
 import controleatividades.Class.Atividade;
 import controleatividades.Class.Conteudo; 
+import controleatividades.Class.Disciplina;
 import controleatividades.Class.Questao;
 import controleatividades.Class.Turma;
 import java.util.ArrayList;
@@ -24,6 +25,8 @@ public class FormAtividade extends javax.swing.JFrame {
     private ArrayList<Alternativa> alternativa;
     private ArrayList<Turma> turma;
     private ArrayList<Atividade> atividade;
+    private ArrayList<Disciplina> disciplina;
+
     int cod = 1; 
        
        
@@ -35,12 +38,13 @@ public class FormAtividade extends javax.swing.JFrame {
         preencheComboConteudo();
     }
 
-     FormAtividade(ArrayList conteudo,ArrayList questao, ArrayList turma, ArrayList alternativa, ArrayList atividade) {
+     FormAtividade(ArrayList conteudo,ArrayList questao, ArrayList turma, ArrayList alternativa, ArrayList atividade, ArrayList disciplina) {
          this.conteudo = conteudo;
          this.questao = questao;
          this.alternativa = alternativa;
          this.turma = turma;
          this.atividade = atividade;
+         this.disciplina = disciplina;
          initComponents(); 
          preencheComboTurma();
          preencheComboAtividade();
@@ -64,15 +68,23 @@ public class FormAtividade extends javax.swing.JFrame {
      
      public void inserir(){
         Questao q = null;
-        Atividade a = atividade.get(cbxAtividade.getSelectedIndex());  
+        Atividade a = atividade.get(cbxAtividade.getSelectedIndex()); 
+        
+        if(a.getQuestoes().size()<10){ 
+            System.out.println(a.getQuestoes().size());
+            System.out.println("oo");
         for(Questao v : questao){ 
             if(v.getEnunciado().equals(cbxQuestoes.getSelectedItem())){
                q = v;
             } 
+         }  a.setQuestoes(q);
+           JOptionPane.showMessageDialog(null, "Questão "+ a.getQuestoes().size() +" inserida com sucesso! Insira a próxima questão");    
+           System.out.println(a.getQuestoes());
+        }else{
+        
+         JOptionPane.showMessageDialog(null, "Essa atividade já possui 10 questões");    
         }
-        a.setQuestoes(q);
-       JOptionPane.showMessageDialog(null, "QUESTÃO INSERIDA COM SUCESSO NA ATIVADADE NÚMERO "+a.getCod());    
-       System.out.println(a.getQuestoes());
+      
      }
   
    
@@ -81,18 +93,25 @@ public class FormAtividade extends javax.swing.JFrame {
            cbxTurma.addItem(((Turma)p).getNumero()+"");  
         } 
      }
+    
      public void preencheComboAtividade(){ 
           cbxAtividade.removeAllItems();         
           for(Atividade p : atividade){  
            cbxAtividade.addItem(((Atividade)p).getCod()+"");  
         }        
      }
-      public void preencheComboConteudo(){  
-           
-         for(Conteudo c : conteudo){  
+     
+      public void preencheComboConteudo(){   
+         for(Conteudo c : conteudo){   
             cbxConteudo.addItem(((Conteudo)c).getDescricao());  
-         }
-           
+         } 
+     } 
+     public void preencheComboC(){   
+//         for(Atividade c : atividade){  
+//             if(((Atividade)c).getTurma().getDisciplina().getNome().equals(cbxTurma.getSelectedItem())){ 
+//                   cbxDisciplina.addItem(((Atividade)c).getTurma().getDisciplina().getNome());
+//                }    
+//          }     
      }
       public void preencheCombosQuestoes(){ 
            for(Questao q : questao){  
@@ -240,19 +259,17 @@ public class FormAtividade extends javax.swing.JFrame {
                         .addComponent(jLabel2))
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGap(46, 46, 46)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel8Layout.createSequentialGroup()
                                 .addGap(13, 13, 13)
                                 .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(cbxAtividade, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(cbxConteudo, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(cbxQuestoes, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel8Layout.createSequentialGroup()
-                                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(181, 181, 181))))))
+                            .addComponent(cbxAtividade, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cbxQuestoes, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                                .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(181, 181, 181))
+                            .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbxConteudo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(65, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
@@ -264,15 +281,15 @@ public class FormAtividade extends javax.swing.JFrame {
                 .addComponent(jLabel34)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cbxAtividade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel36)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cbxConteudo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel35)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cbxQuestoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         btCadastrar.setText("CADASTRAR");
@@ -304,7 +321,7 @@ public class FormAtividade extends javax.swing.JFrame {
                         .addGap(141, 141, 141)
                         .addComponent(btCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(125, 125, 125)
+                        .addGap(120, 120, 120)
                         .addComponent(btInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
@@ -317,9 +334,9 @@ public class FormAtividade extends javax.swing.JFrame {
                 .addComponent(btCadastrar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(btInserir)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addGap(20, 20, 20))
         );
 
         pack();
@@ -329,13 +346,13 @@ public class FormAtividade extends javax.swing.JFrame {
     private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
        cadastrarAtividade(); 
        cbxAtividade.removeAllItems();
+       
         preencheComboAtividade();
        
     }//GEN-LAST:event_btCadastrarActionPerformed
 
     private void cbxAtividadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxAtividadeActionPerformed
-      
-       
+      preencheComboC();
     }//GEN-LAST:event_cbxAtividadeActionPerformed
 
     private void cbxQuestoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxQuestoesActionPerformed

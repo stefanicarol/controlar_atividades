@@ -41,8 +41,15 @@ public class FormQuestoes extends javax.swing.JFrame {
      public void cadastrarConteudo(){
          int codC = Integer.parseInt(tfcod.getText());
          String descricao = tfDescricao.getText();
-         conteudo.add(new Conteudo(codC, descricao));
-         System.out.println(conteudo);
+         
+         Disciplina disc = null; 
+         for(Disciplina d : disciplina){
+             if(d.getNome().equals(cbxDisciplina.getSelectedItem())){
+                disc = d;
+             } 
+          }
+        conteudo.add(new Conteudo(codC, descricao, disc));
+        System.out.println(conteudo);
         JOptionPane.showMessageDialog(null, "CONTEÚDO" +descricao+ " CADASTRADO SUCESSO!");  
      }
       
