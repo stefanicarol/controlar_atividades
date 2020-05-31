@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controleatividades.Forms;
+package controleatividades.Reports;
 
 import controleatividades.Class.Atividade; 
 import java.util.ArrayList;

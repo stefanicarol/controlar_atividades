@@ -57,8 +57,7 @@ public class FormQuestoes extends javax.swing.JFrame {
          Disciplina disc = null; 
          Conteudo cont = null; 
          int codQ = Integer.parseInt(tfCodQ.getText());
-         String enu = tfEnunciado.getText(); 
-        
+         String enu = tfEnunciado.getText();        
           for(Disciplina d : disciplina){
              if(d.getNome().equals(cbxDisciplina.getSelectedItem())){
                 disc = d;
@@ -69,13 +68,11 @@ public class FormQuestoes extends javax.swing.JFrame {
                 cont = c;
              } 
           }
-          
           String a = tfA.getText();
           String b = tfB.getText();
           String c = tfC.getText();
           String d = tfD.getText();
-          String e = tfE.getText(); 
-     
+          String e = tfE.getText();     
            if(rbA.isSelected()){  
               Alternativa alt = new Alternativa(cod,a,b,c,d,e,"A");
               alternativa.add(alt); 

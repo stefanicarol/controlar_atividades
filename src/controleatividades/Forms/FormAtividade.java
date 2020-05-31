@@ -101,18 +101,13 @@ public class FormAtividade extends javax.swing.JFrame {
         }        
      }
      
-      public void preencheComboConteudo(){   
-         for(Conteudo c : conteudo){   
+      public void preencheComboConteudo(){ 
+           cbxConteudo.removeAllItems();  
+          for(Conteudo c : conteudo){   
             cbxConteudo.addItem(((Conteudo)c).getDescricao());  
          } 
      } 
-     public void preencheComboC(){   
-//         for(Atividade c : atividade){  
-//             if(((Atividade)c).getTurma().getDisciplina().getNome().equals(cbxTurma.getSelectedItem())){ 
-//                   cbxDisciplina.addItem(((Atividade)c).getTurma().getDisciplina().getNome());
-//                }    
-//          }     
-     }
+ 
       public void preencheCombosQuestoes(){ 
            for(Questao q : questao){  
             if(((Questao) q).getConteudo().getDescricao().equals(cbxConteudo.getSelectedItem())){     
@@ -352,7 +347,7 @@ public class FormAtividade extends javax.swing.JFrame {
     }//GEN-LAST:event_btCadastrarActionPerformed
 
     private void cbxAtividadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxAtividadeActionPerformed
-      preencheComboC();
+     
     }//GEN-LAST:event_cbxAtividadeActionPerformed
 
     private void cbxQuestoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxQuestoesActionPerformed

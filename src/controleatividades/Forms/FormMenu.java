@@ -5,6 +5,7 @@
  */
 package controleatividades.Forms;
 
+import controleatividades.Reports.FormReport;
 import controleatividades.Class.Alternativa;
 import controleatividades.Class.Atividade;
 import controleatividades.Class.Conteudo;
