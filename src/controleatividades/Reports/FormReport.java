@@ -2,6 +2,7 @@ package controleatividades.Reports;
 import controleatividades.Class.Atividade; 
 import controleatividades.Class.Questao;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -28,6 +29,7 @@ public class FormReport extends javax.swing.JFrame {
     public void imprimeAtividade() {       
        /* Imprime o cabeçalho (número da turma, disciplina, data de início e data de fim)
        e questões da atividade (enunciado e alternativas, sem o gabarito) escolhida pelo usuário; */
+     try { 
       taSaida.setText("");
       for(Atividade a: atividade){
            if(a.getCod() == (Integer.parseInt(tfNumero.getText()))){
@@ -41,10 +43,15 @@ public class FormReport extends javax.swing.JFrame {
                 }  
             }
         } 
+    }catch (Exception exe) {
+          JOptionPane.showMessageDialog(null, "INSIRA TODOS OS DADOS");
+           System.out.println(exe); 
+      } 
     }
   
     public void imprimeGabaritoData() {
        /* Imprimir gabarito de todas as atividades que finalizam em uma data indicada pelo usuário; */
+     try { 
        taSaida.setText("");
        for(Atividade a: atividade){
            if(a.getDataF().equals(tfdata.getText())){
@@ -55,11 +62,16 @@ public class FormReport extends javax.swing.JFrame {
              }  
           }
        } 
+    }catch (Exception exe) {
+          JOptionPane.showMessageDialog(null, "INSIRA TODOS OS DADOS");
+           System.out.println(exe); 
+      } 
     }
 
     public void imprimeTodasAtividades() {
      /* o código, número da turma, disciplina, data de início e data de fim de todas as atividades. */
-         taSaida.setText("ATIVIDADES: \n");
+     try {   
+     taSaida.setText("ATIVIDADES: \n");
          for(Atividade a : atividade){
                taSaida.append("ATIVIDADE Nº: "+a.getCod()+
                        " TURMA Nº: "+a.getTurma().getNumero()+
@@ -67,11 +79,16 @@ public class FormReport extends javax.swing.JFrame {
                        " DATA INICIO: "+a.getDataI()+
                        " DATA FIM:"+ a.getDataF()+"\n"); 
          }
+    }catch (Exception exe) {
+          JOptionPane.showMessageDialog(null, "INSIRA TODOS OS DADOS");
+           System.out.println(exe); 
+      } 
     }
 
     private void imprimeGabarito() {
      /* Imprimir gabarito de uma atividade específica indicada pelo usuário; */
-      taSaida.setText("");
+      try {
+     taSaida.setText("");
       for(Atividade a: atividade){ 
            if(a.getCod() == (Integer.parseInt(tfNumero.getText()))){
                 for(Questao q : a.getQuestoes()){
@@ -80,8 +97,11 @@ public class FormReport extends javax.swing.JFrame {
                 }  
             }
         } 
+      }catch (Exception exe) {
+          JOptionPane.showMessageDialog(null, "INSIRA TODOS OS DADOS");
+           System.out.println(exe); 
+      } 
     }
-     
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
