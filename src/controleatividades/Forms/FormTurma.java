@@ -15,7 +15,8 @@ import javax.swing.JOptionPane;
  *
  * @author stefa
  */
-public class FormTurma extends javax.swing.JFrame {
+public class FormTurma extends javax.swing.JInternalFrame {
+
       private ArrayList<Turma> turma;
       private ArrayList<Professor> professor;
       private ArrayList<Disciplina> disciplina;
@@ -25,7 +26,7 @@ public class FormTurma extends javax.swing.JFrame {
         preencheCbx();
     }
 
-     FormTurma(ArrayList professor,ArrayList disciplina,ArrayList turma) {
+      FormTurma(ArrayList professor,ArrayList disciplina,ArrayList turma) {
          this.professor = professor;
          this.disciplina = disciplina; 
          this.turma = turma;
@@ -33,9 +34,8 @@ public class FormTurma extends javax.swing.JFrame {
          preencheCbx();
        
     }
-   
-     
-    public void cadastrar(){
+    
+      public void cadastrar(){
         try{
                 int numero = (Integer.parseInt(tfNum.getText()));
                 Disciplina disc = null; 
@@ -78,7 +78,6 @@ public class FormTurma extends javax.swing.JFrame {
             } 
         }
     }
-     
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -95,10 +94,10 @@ public class FormTurma extends javax.swing.JFrame {
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         tfNum = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
         btCadastrar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setClosable(true);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -179,15 +178,15 @@ public class FormTurma extends javax.swing.JFrame {
                 .addGap(25, 25, 25))
         );
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel1.setText("TURMA");
-
         btCadastrar.setText("CADASTRAR");
         btCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btCadastrarActionPerformed(evt);
             }
         });
+
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel1.setText("TURMA");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -216,56 +215,20 @@ public class FormTurma extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btCadastrar)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(8, Short.MAX_VALUE))
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
-        cadastrar();
-    }//GEN-LAST:event_btCadastrarActionPerformed
 
     private void cbxDisciplinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxDisciplinaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxDisciplinaActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FormTurma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FormTurma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FormTurma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FormTurma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
+    private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
+        cadastrar();
+    }//GEN-LAST:event_btCadastrarActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FormTurma().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCadastrar;

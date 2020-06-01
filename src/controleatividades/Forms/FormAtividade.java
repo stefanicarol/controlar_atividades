@@ -7,7 +7,7 @@ package controleatividades.Forms;
 
 import controleatividades.Class.Alternativa;
 import controleatividades.Class.Atividade;
-import controleatividades.Class.Conteudo; 
+import controleatividades.Class.Conteudo;
 import controleatividades.Class.Disciplina;
 import controleatividades.Class.Questao;
 import controleatividades.Class.Turma;
@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
  *
  * @author stefa
  */
-public class FormAtividade extends javax.swing.JFrame {
+public class FormAtividade extends javax.swing.JInternalFrame {
 
     private ArrayList<Conteudo> conteudo;
     private ArrayList<Questao> questao;
@@ -28,18 +28,14 @@ public class FormAtividade extends javax.swing.JFrame {
     private ArrayList<Disciplina> disciplina;
 
     int cod = 1; 
-       
-       
     public FormAtividade() {
         initComponents();
         preencheComboTurma();
         preencherCombosQuestoe();
-//        preencheComboAtividade(); 
-//        preencheCombosQuestoes();
-//        preencheComboConteudo();
     }
 
-     FormAtividade(ArrayList conteudo,ArrayList questao, ArrayList turma, ArrayList alternativa, ArrayList atividade, ArrayList disciplina) {
+    
+        FormAtividade(ArrayList conteudo,ArrayList questao, ArrayList turma, ArrayList alternativa, ArrayList atividade, ArrayList disciplina) {
          this.conteudo = conteudo;
          this.questao = questao;
          this.alternativa = alternativa;
@@ -159,8 +155,7 @@ public class FormAtividade extends javax.swing.JFrame {
                    }
              }
        }
-      
-      
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -190,7 +185,7 @@ public class FormAtividade extends javax.swing.JFrame {
         btCadastrar = new javax.swing.JButton();
         btInserir = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setClosable(true);
 
         jPanel7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -362,7 +357,7 @@ public class FormAtividade extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(120, 120, 120)
                         .addComponent(btInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -379,74 +374,38 @@ public class FormAtividade extends javax.swing.JFrame {
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
-       cadastrarAtividade(); 
-       
-   
-        preencherCombosQuestoe();
-        preencheComboAtividade();
-       
-    }//GEN-LAST:event_btCadastrarActionPerformed
+    private void cbxTurmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxTurmaActionPerformed
 
-    private void cbxAtividadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxAtividadeActionPerformed
-      preenchecont();      
-//        preencherCombosQuestoe();
-    }//GEN-LAST:event_cbxAtividadeActionPerformed
+    }//GEN-LAST:event_cbxTurmaActionPerformed
 
     private void cbxQuestoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxQuestoesActionPerformed
-      
+
     }//GEN-LAST:event_cbxQuestoesActionPerformed
 
+    private void cbxAtividadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxAtividadeActionPerformed
+        preenchecont();
+        //        preencherCombosQuestoe();
+    }//GEN-LAST:event_cbxAtividadeActionPerformed
+
     private void cbxConteudoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxConteudoActionPerformed
-         
+
         preencheCombosQuestoes();
     }//GEN-LAST:event_cbxConteudoActionPerformed
 
+    private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
+        cadastrarAtividade();
+
+        preencherCombosQuestoe();
+        preencheComboAtividade();
+
+    }//GEN-LAST:event_btCadastrarActionPerformed
+
     private void btInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btInserirActionPerformed
-       inserir();
+        inserir();
     }//GEN-LAST:event_btInserirActionPerformed
 
-    private void cbxTurmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxTurmaActionPerformed
-     
-    }//GEN-LAST:event_cbxTurmaActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FormAtividade.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FormAtividade.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FormAtividade.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FormAtividade.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FormAtividade().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCadastrar;

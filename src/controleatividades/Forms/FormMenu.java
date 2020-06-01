@@ -5,7 +5,7 @@
  */
 package controleatividades.Forms;
 
-import controleatividades.Reports.FormReport;
+ 
 import controleatividades.Class.Alternativa;
 import controleatividades.Class.Atividade;
 import controleatividades.Class.Conteudo;
@@ -13,6 +13,7 @@ import controleatividades.Class.Disciplina;
 import controleatividades.Class.Professor;
 import controleatividades.Class.Questao;
 import controleatividades.Class.Turma;
+import controleatividades.Reports.FormReports;
 import java.util.ArrayList;
 
 /**
@@ -89,13 +90,11 @@ public class FormMenu extends javax.swing.JFrame {
      
       
      turma.add(new Turma(700,disciplina.get(0),"2020/1","2N",professores.get(2)));
-     turma.add(new Turma(500,disciplina.get(4),"2020/1","5N",professores.get(1)));
-     turma.add(new Turma(400,disciplina.get(3),"2020/1","6N",professores.get(0)));
+     turma.add(new Turma(500,disciplina.get(1),"2020/1","5N",professores.get(1)));
+     turma.add(new Turma(400,disciplina.get(2),"2020/1","6N",professores.get(0)));
      
      }
-    
-    
-
+     
   
     /**
      * This method is called from within the constructor to initialize the form.
@@ -108,6 +107,7 @@ public class FormMenu extends javax.swing.JFrame {
 
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
+        areaTrab = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -125,6 +125,17 @@ public class FormMenu extends javax.swing.JFrame {
         jMenuItem6.setText("jMenuItem6");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        javax.swing.GroupLayout areaTrabLayout = new javax.swing.GroupLayout(areaTrab);
+        areaTrab.setLayout(areaTrabLayout);
+        areaTrabLayout.setHorizontalGroup(
+            areaTrabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 701, Short.MAX_VALUE)
+        );
+        areaTrabLayout.setVerticalGroup(
+            areaTrabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 577, Short.MAX_VALUE)
+        );
 
         jMenu1.setText("CADASTRAR");
 
@@ -200,11 +211,11 @@ public class FormMenu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 701, Short.MAX_VALUE)
+            .addComponent(areaTrab)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 577, Short.MAX_VALUE)
+            .addComponent(areaTrab)
         );
 
         pack();
@@ -213,36 +224,43 @@ public class FormMenu extends javax.swing.JFrame {
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         FormProfessor formprofessor = new FormProfessor(professores);
+        areaTrab.add(formprofessor);
         formprofessor.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         FormQuestoes formquestoes = new FormQuestoes(conteudo, questao, disciplina, alternativa);
+         areaTrab.add(formquestoes);
         formquestoes.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         FormDisciplina formdisciplina = new FormDisciplina(disciplina);
+        areaTrab.add(formdisciplina);
         formdisciplina.setVisible(true);
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         FormTurma formturma = new FormTurma(professores, disciplina, turma);
+        areaTrab.add(formturma);
         formturma.setVisible(true);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         FormAtividade formatividade = new FormAtividade(conteudo, questao, turma, alternativa, atividade, disciplina);
+        areaTrab.add(formatividade);
         formatividade.setVisible(true);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
-        FormSobre forms = new FormSobre();
+        FormAbout forms = new FormAbout();
+        areaTrab.add(forms);
         forms.setVisible(true);
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
-       FormReport formp = new FormReport(atividade);
+       FormReports formp = new FormReports(atividade);
+       areaTrab.add(formp);
        formp.setVisible(true);
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
@@ -282,6 +300,7 @@ public class FormMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDesktopPane areaTrab;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
