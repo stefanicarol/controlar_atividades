@@ -28,14 +28,24 @@ public class FormProfessor extends javax.swing.JFrame {
         
     }
      
-   
+   public void limpar(){
+        tfNome.setText(null);
+        tfTitulacao.setText(null);
+        tfCgu.setText(null); 
+    } 
     public void cadastrar(){
+        try{
             int cgu = Integer.parseInt(tfCgu.getText());
             String nome = tfNome.getText();
             String titulacao = tfTitulacao.getText();
             professor.add(new Professor(cgu, nome, titulacao));  
             JOptionPane.showMessageDialog(null, "PROFESSOR "+nome +" SUCESSO!");        
             System.out.println(professor.toString());
+            limpar();
+            }catch (Exception exe) {
+                JOptionPane.showMessageDialog(null, "INSIRA TODOS OS DADOS DO PRODESSOR");
+                System.out.println(exe); 
+      }  
     }
   
     @SuppressWarnings("unchecked")

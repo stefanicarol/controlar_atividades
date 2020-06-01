@@ -26,15 +26,29 @@ public class FormDisciplina extends javax.swing.JFrame {
         initComponents(); 
        
     }
+    
+    
+     public void limpar(){
+        tfCod.setText(null);
+        tfCredito.setText(null);
+        tfNome.setText(null); 
+    } 
   
       public void cadastrar(){
-             int cod = Integer.parseInt(tfCod.getText());
-             int cred = Integer.parseInt(tfCredito.getText());
-             String nome = tfNome.getText();
+       try{
+            int cod = Integer.parseInt(tfCod.getText());
+            int cred = Integer.parseInt(tfCredito.getText());
+            String nome = tfNome.getText();
                         
             disciplina.add(new Disciplina(cod, nome, cred));
             JOptionPane.showMessageDialog(null, "DISCIPLINA" +nome+ " CADASTRADA SUCESSO!");        
             System.out.println(disciplina.toString());
+            limpar();
+          }catch (Exception exe) {
+          JOptionPane.showMessageDialog(null, "INSIRA TODOS OS DADOS CORRETAMENTE");
+           System.out.println(exe); 
+      }  
+            
     }
    
     /**
@@ -149,7 +163,8 @@ public class FormDisciplina extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tbCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbCadastrarActionPerformed
-            cadastrar();        // TODO add your handling code here:
+            cadastrar();  
+            
     }//GEN-LAST:event_tbCadastrarActionPerformed
 
     /**

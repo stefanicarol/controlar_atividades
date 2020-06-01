@@ -29,9 +29,9 @@ public class FormReport extends javax.swing.JFrame {
     public void imprimeAtividade() {       
        /* Imprime o cabeçalho (número da turma, disciplina, data de início e data de fim)
        e questões da atividade (enunciado e alternativas, sem o gabarito) escolhida pelo usuário; */
-     try { 
-      taSaida.setText("");
-      for(Atividade a: atividade){
+     taSaida.setText("");
+       try { 
+           for(Atividade a: atividade){
            if(a.getCod() == (Integer.parseInt(tfNumero.getText()))){
                taSaida.append("\nDADOS DA ATIVIDADE: TURMA Nº " + a.getTurma().getNumero()+ "\n "
                        + "DISCIPLINA: "+a.getTurma().getDisciplina().getNome()+"\n  "
@@ -51,9 +51,9 @@ public class FormReport extends javax.swing.JFrame {
   
     public void imprimeGabaritoData() {
        /* Imprimir gabarito de todas as atividades que finalizam em uma data indicada pelo usuário; */
-     try { 
-       taSaida.setText("");
-       for(Atividade a: atividade){
+     taSaida.setText("");
+       try { 
+        for(Atividade a: atividade){
            if(a.getDataF().equals(tfdata.getText())){
              taSaida.append("ATIVIDADE: Nº "+ a.getCod()+"\n");
              for(Questao q : a.getQuestoes()){
@@ -70,8 +70,8 @@ public class FormReport extends javax.swing.JFrame {
 
     public void imprimeTodasAtividades() {
      /* o código, número da turma, disciplina, data de início e data de fim de todas as atividades. */
-     try {   
      taSaida.setText("ATIVIDADES: \n");
+     try {   
          for(Atividade a : atividade){
                taSaida.append("ATIVIDADE Nº: "+a.getCod()+
                        " TURMA Nº: "+a.getTurma().getNumero()+
@@ -87,9 +87,9 @@ public class FormReport extends javax.swing.JFrame {
 
     private void imprimeGabarito() {
      /* Imprimir gabarito de uma atividade específica indicada pelo usuário; */
-      try {
      taSaida.setText("");
-      for(Atividade a: atividade){ 
+     try {
+         for(Atividade a: atividade){ 
            if(a.getCod() == (Integer.parseInt(tfNumero.getText()))){
                 for(Questao q : a.getQuestoes()){
                      taSaida.append("QUESTÃO: "+ q.getEnunciado() +
@@ -121,6 +121,7 @@ public class FormReport extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         taSaida = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -234,31 +235,40 @@ public class FormReport extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel4.setText("REPORTS");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(268, 268, 268)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(242, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(45, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(46, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(243, 243, 243))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(289, 289, 289)
+                .addComponent(jLabel4)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(33, 33, 33)
+                .addComponent(jLabel4)
+                .addGap(27, 27, 27)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
+                .addGap(18, 18, 18)
                 .addComponent(jButton1)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
@@ -340,6 +350,7 @@ public class FormReport extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JRadioButton rbA;

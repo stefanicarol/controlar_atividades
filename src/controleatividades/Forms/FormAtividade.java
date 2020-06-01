@@ -56,6 +56,7 @@ public class FormAtividade extends javax.swing.JFrame {
      
      
      public void cadastrarAtividade(){
+         try{
          Turma tur = null;  
          String dataInicio = tfDataI.getText();
          String dataFim = tfDataF.getText();
@@ -66,12 +67,16 @@ public class FormAtividade extends javax.swing.JFrame {
                     cod++;  
                  }
               } JOptionPane.showMessageDialog(null, "ATIVIDADE " +(cod - 1) + " CADASTRADA COM SUCESSO!"); 
-          }  
+           }catch (Exception exe) {
+                JOptionPane.showMessageDialog(null, "INSIRA TODOS OS DADOS DA ATIVIDADE");
+                System.out.println(exe); 
+          }       
+     }  
      
      public void inserir(){
         Questao q = null;
         Atividade a = atividade.get(cbxAtividade.getSelectedIndex()); 
-        
+        try{
         if(a.getQuestoes().size()<10){ 
             System.out.println(a.getQuestoes().size());
             System.out.println("oo");
@@ -86,7 +91,10 @@ public class FormAtividade extends javax.swing.JFrame {
         
          JOptionPane.showMessageDialog(null, "Essa atividade já possui 10 questões");    
         }
-      
+      }catch (Exception exe) {
+                JOptionPane.showMessageDialog(null, "INSIRA TODOS OS DADOS DA QUESTÃO");
+                System.out.println(exe); 
+       }  
      }
   
    

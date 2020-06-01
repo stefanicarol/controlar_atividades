@@ -39,21 +39,20 @@ public class FormQuestoes extends javax.swing.JFrame {
     }
   
      public void cadastrarConteudo(){
-         int codC = Integer.parseInt(tfcod.getText());
-         String descricao = tfDescricao.getText();
-         
-         Disciplina disc = null; 
-         for(Disciplina d : disciplina){
-             if(d.getNome().equals(cbxDisciplina.getSelectedItem())){
-                disc = d;
-             } 
-          }
-        conteudo.add(new Conteudo(codC, descricao, disc));
-        System.out.println(conteudo);
-        JOptionPane.showMessageDialog(null, "CONTEÚDO" +descricao+ " CADASTRADO SUCESSO!");  
+         try{
+            int codC = Integer.parseInt(tfcod.getText());
+            String descricao = tfDescricao.getText();
+           conteudo.add(new Conteudo(codC, descricao));
+           System.out.println(conteudo);
+           JOptionPane.showMessageDialog(null, "CONTEÚDO" +descricao+ " CADASTRADO SUCESSO!");  
+        }catch (Exception exe) {
+                JOptionPane.showMessageDialog(null, "INSIRA TODOS OS DADOS DO CONTEÚDO");
+                System.out.println(exe); 
+       }  
      }
       
      public void cadastrarQuestao(){
+         try{
          Disciplina disc = null; 
          Conteudo cont = null; 
          int codQ = Integer.parseInt(tfCodQ.getText());
@@ -97,7 +96,10 @@ public class FormQuestoes extends javax.swing.JFrame {
            System.out.println(questao);
            cod++;
             JOptionPane.showMessageDialog(null, "QUESTÃO CADASTRADA COM SUCESSO");        
-             
+            }catch (Exception exe) {
+                JOptionPane.showMessageDialog(null, "INSIRA TODOS OS DADOS DA QUESTÃO");
+                System.out.println(exe); 
+        }   
      } 
      
       public void preencheCbx(){ 

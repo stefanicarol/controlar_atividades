@@ -36,27 +36,31 @@ public class FormTurma extends javax.swing.JFrame {
    
      
     public void cadastrar(){
-        int numero = (Integer.parseInt(tfNum.getText()));
-        Disciplina disc = null; 
-        String semestre = tfSemestre.getText();
-        String horario = tfHorario.getText();
-        Professor prof = null; 
-                
-         for(Disciplina d : disciplina){
-             if(d.getNome().equals(cbxDisciplina.getSelectedItem())){
-                disc = d;
-             } 
-          }
-           for(Professor p : professor){
-             if(p.getNome().equals(cbxDisciplina.getSelectedItem())){
-                prof = p;
-             } 
-          }
-                
-         turma.add(new Turma(numero,disc,semestre,horario, prof));
-         JOptionPane.showMessageDialog(null, "TURMA "+numero+" CADASTRADA COM SUCESSO!");        
-         System.out.println(disciplina.toString());
-                
+        try{
+                int numero = (Integer.parseInt(tfNum.getText()));
+                Disciplina disc = null; 
+                String semestre = tfSemestre.getText();
+                String horario = tfHorario.getText();
+                Professor prof = null; 
+
+                 for(Disciplina d : disciplina){
+                     if(d.getNome().equals(cbxDisciplina.getSelectedItem())){
+                        disc = d;
+                     } 
+                  }
+                   for(Professor p : professor){
+                     if(p.getNome().equals(cbxDisciplina.getSelectedItem())){
+                        prof = p;
+                     } 
+                  }
+
+                 turma.add(new Turma(numero,disc,semestre,horario, prof));
+                 JOptionPane.showMessageDialog(null, "TURMA "+numero+" CADASTRADA COM SUCESSO!");        
+                 System.out.println(disciplina.toString());
+         }catch (Exception exe) {
+                JOptionPane.showMessageDialog(null, "INSIRA TODOS OS DADOS DA TURMA");
+                System.out.println(exe); 
+        }          
     }
     
     
