@@ -33,9 +33,10 @@ public class FormAtividade extends javax.swing.JFrame {
     public FormAtividade() {
         initComponents();
         preencheComboTurma();
-        preencheComboAtividade(); 
-        preencheCombosQuestoes();
-        preencheComboConteudo();
+        preencherCombosQuestoe();
+//        preencheComboAtividade(); 
+//        preencheCombosQuestoes();
+//        preencheComboConteudo();
     }
 
      FormAtividade(ArrayList conteudo,ArrayList questao, ArrayList turma, ArrayList alternativa, ArrayList atividade, ArrayList disciplina) {
@@ -47,9 +48,10 @@ public class FormAtividade extends javax.swing.JFrame {
          this.disciplina = disciplina;
          initComponents(); 
          preencheComboTurma();
-         preencheComboAtividade();
-         preencheCombosQuestoes();
-         preencheComboConteudo();
+         preencherCombosQuestoe();
+//         preencheComboAtividade();
+//         preencheCombosQuestoes();
+//         preencheComboConteudo();
     }
      
      
@@ -103,7 +105,7 @@ public class FormAtividade extends javax.swing.JFrame {
      
       public void preencheComboConteudo(){ 
            cbxConteudo.removeAllItems();  
-          for(Conteudo c : conteudo){   
+           for(Conteudo c : conteudo){   
             cbxConteudo.addItem(((Conteudo)c).getDescricao());  
          } 
      } 
@@ -115,8 +117,42 @@ public class FormAtividade extends javax.swing.JFrame {
              }   
          }  
      }
+       public void preenchecont(){ 
+          for(Atividade p : atividade){ 
+                        for(Questao c : questao){ 
+                             if (((Atividade)p).getTurma().getDisciplina().getNome().equals(c.getDisciplina().getNome())){ 
+                                      
+                                      cbxConteudo.addItem(c.getConteudo().getDescricao());
+                                      
+                                         
+                                    }
+                               }
+                         } 
+     }
       
      
+      
+      public void preencherCombosQuestoe(){
+//        cbxAtividade.removeAllItems();
+        for(Atividade p : atividade){
+            preencheComboAtividade();
+//           cbxAtividade.addItem(((Atividade)p).getCod()+""); 
+                if(((Atividade)p).getCod()== Integer.parseInt(cbxAtividade.getSelectedItem().toString())){ 
+//                    for(Atividade p2 : atividade){ 
+                        for(Questao c : questao){ 
+                             if (((Atividade)p).getTurma().getDisciplina().getNome().equals(c.getDisciplina().getNome())){ 
+                                    preenchecont();
+//                                    cbxConteudo.addItem(c.getConteudo().getDescricao());
+                                       preencheCombosQuestoes();
+//                                         
+                                    }
+                               }
+//                         }
+                   }
+             }
+       }
+      
+      
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -340,14 +376,16 @@ public class FormAtividade extends javax.swing.JFrame {
 
     private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
        cadastrarAtividade(); 
-       cbxAtividade.removeAllItems();
        
+   
+        preencherCombosQuestoe();
         preencheComboAtividade();
        
     }//GEN-LAST:event_btCadastrarActionPerformed
 
     private void cbxAtividadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxAtividadeActionPerformed
-     
+      preenchecont();      
+//        preencherCombosQuestoe();
     }//GEN-LAST:event_cbxAtividadeActionPerformed
 
     private void cbxQuestoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxQuestoesActionPerformed
@@ -355,7 +393,7 @@ public class FormAtividade extends javax.swing.JFrame {
     }//GEN-LAST:event_cbxQuestoesActionPerformed
 
     private void cbxConteudoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxConteudoActionPerformed
-        cbxQuestoes.removeAllItems();  
+         
         preencheCombosQuestoes();
     }//GEN-LAST:event_cbxConteudoActionPerformed
 

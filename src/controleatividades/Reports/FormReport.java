@@ -1,11 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controleatividades.Reports;
-
 import controleatividades.Class.Atividade; 
+import controleatividades.Class.Questao;
 import java.util.ArrayList;
 
 /**
@@ -24,31 +19,67 @@ public class FormReport extends javax.swing.JFrame {
     }
 
     public FormReport(ArrayList atividade) {
-       this.atividade = atividade;
-    }
-
-    private void imprimeAtividade() {
-        taSaida.setText("ATIVIDADE: \n");
-         for(Atividade a : atividade){
-               taSaida.append(a.getTurma().getProfessor().getNome()+"\n"); 
-         }
+        initComponents();
+        this.atividade = atividade; 
+        tfdata.setEnabled(false);
+        tfNumero.setEnabled(false);
     }
  
-    
-    private void imprimeGabaritoData() {
-       
+    public void imprimeAtividade() {       
+       /* Imprime o cabeçalho (número da turma, disciplina, data de início e data de fim)
+       e questões da atividade (enunciado e alternativas, sem o gabarito) escolhida pelo usuário; */
+      taSaida.setText("");
+      for(Atividade a: atividade){
+           if(a.getCod() == (Integer.parseInt(tfNumero.getText()))){
+               taSaida.append("DADOS DA ATIVIDADE: TURMA Nº " + a.getTurma().getNumero()+ "\n "
+                       + "DISCIPLINA: "+a.getTurma().getDisciplina().getNome()+"\n  "
+                       + "DATA INICIO: "+a.getDataI()+"\n "
+                       + "DATA FIM: "+a.getDataF()); 
+                for(Questao q : a.getQuestoes()){ 
+                     taSaida.append("QUESTÃO: \n "+ q.getEnunciado()); 
+                }  
+            }
+        } 
+    }
+  
+    public void imprimeGabaritoData() {
+       /* Imprimir gabarito de todas as atividades que finalizam em uma data indicada pelo usuário; */
+       taSaida.setText("");
+       for(Atividade a: atividade){
+           if(a.getDataF().equals(tfdata.getText())){
+             for(Questao q : a.getQuestoes()){
+             taSaida.append("QUESTÃO: "+ q.getEnunciado() +
+                     " GABARITO: "+q.getAlternativas().getCerta()+"\n"); 
+             }  
+          }
+       } 
     }
 
-    private void imprimeTodasAtividades() {
-        
+    public void imprimeTodasAtividades() {
+     /* o código, número da turma, disciplina, data de início e data de fim de todas as atividades. */
+         taSaida.setText("ATIVIDADES: \n");
+         for(Atividade a : atividade){
+               taSaida.append("ATIVIDADE Nº: "+a.getCod()+
+                       " TURMA Nº: "+a.getTurma().getNumero()+
+                       " DISCIPLINA: "+a.getTurma().getDisciplina().getNome()+
+                       " DATA INICIO: "+a.getDataI()+
+                       " DATA FIM:"+ a.getDataF()+"\n"); 
+         }
     }
 
     private void imprimeGabarito() {
-         
+     /* Imprimir gabarito de uma atividade específica indicada pelo usuário; */
+      taSaida.setText("");
+      for(Atividade a: atividade){
+           if(a.getCod() == (Integer.parseInt(tfNumero.getText()))){
+                for(Questao q : a.getQuestoes()){
+                     taSaida.append("QUESTÃO: "+ q.getEnunciado() +
+                             "  GABARITO: "+q.getAlternativas().getCerta()+"\n"); 
+                }  
+            }
+        } 
     }
      
- 
-    
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -213,8 +244,8 @@ public class FormReport extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void rbGDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbGDActionPerformed
-         tfdata.setEnabled(true);
-         tfNumero.setEnabled(false);
+      tfdata.setEnabled(true);
+       tfNumero.setEnabled(false);
     }//GEN-LAST:event_rbGDActionPerformed
 
     private void rdGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdGActionPerformed

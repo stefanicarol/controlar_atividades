@@ -218,7 +218,7 @@ public class FormMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
-       FormReport formp = new FormReport();
+       FormReport formp = new FormReport(atividade);
        formp.setVisible(true);
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
