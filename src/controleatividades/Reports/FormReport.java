@@ -31,12 +31,13 @@ public class FormReport extends javax.swing.JFrame {
       taSaida.setText("");
       for(Atividade a: atividade){
            if(a.getCod() == (Integer.parseInt(tfNumero.getText()))){
-               taSaida.append("DADOS DA ATIVIDADE: TURMA Nº " + a.getTurma().getNumero()+ "\n "
+               taSaida.append("\nDADOS DA ATIVIDADE: TURMA Nº " + a.getTurma().getNumero()+ "\n "
                        + "DISCIPLINA: "+a.getTurma().getDisciplina().getNome()+"\n  "
                        + "DATA INICIO: "+a.getDataI()+"\n "
-                       + "DATA FIM: "+a.getDataF()); 
-                for(Questao q : a.getQuestoes()){ 
-                     taSaida.append("QUESTÃO: \n "+ q.getEnunciado()); 
+                       + "DATA FIM: "+a.getDataF()+"\n"); 
+                taSaida.append("QUESTÕES: \n "); 
+                for(Questao q : a.getQuestoes()){  
+                     taSaida.append(q.getEnunciado()+"\n"); 
                 }  
             }
         } 
@@ -47,8 +48,9 @@ public class FormReport extends javax.swing.JFrame {
        taSaida.setText("");
        for(Atividade a: atividade){
            if(a.getDataF().equals(tfdata.getText())){
+             taSaida.append("ATIVIDADE: Nº "+ a.getCod()+"\n");
              for(Questao q : a.getQuestoes()){
-             taSaida.append("QUESTÃO: "+ q.getEnunciado() +
+             taSaida.append("QUESTÃO: "+ q.getEnunciado()+
                      " GABARITO: "+q.getAlternativas().getCerta()+"\n"); 
              }  
           }
@@ -70,7 +72,7 @@ public class FormReport extends javax.swing.JFrame {
     private void imprimeGabarito() {
      /* Imprimir gabarito de uma atividade específica indicada pelo usuário; */
       taSaida.setText("");
-      for(Atividade a: atividade){
+      for(Atividade a: atividade){ 
            if(a.getCod() == (Integer.parseInt(tfNumero.getText()))){
                 for(Questao q : a.getQuestoes()){
                      taSaida.append("QUESTÃO: "+ q.getEnunciado() +

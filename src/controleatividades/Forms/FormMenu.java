@@ -37,33 +37,57 @@ public class FormMenu extends javax.swing.JFrame {
 
     
      public void inserir(){
-     professores.add(new Professor (153,"Fabiano","MESTRE"));
-     professores.add(new Professor(828, "Jackson", "Doutor"));
-     professores.add(new Professor (600, "Carlos","LPOO"));
-     professores.add(new Professor (453,"Ana Maria","Mestra"));
+     professores.add(new Professor(1,"Fabiano","Mestre"));
+     professores.add(new Professor(2,"Jackson","Doutor"));
+     professores.add(new Professor(3,"Carlos","Bacharel"));
+     professores.add(new Professor(4,"Ana Maria","Mestra")); 
+     professores.add(new Professor(5,"Stéfani Carol","Doutora"));
      
      disciplina.add(new Disciplina(1,"LPOO",50 ));
-     disciplina.add(new Disciplina(2,"BD II",55 ));
-     disciplina.add(new Disciplina(3,"AP I",50 ));
-     disciplina.add(new Disciplina(4,"BD I",55 ));
-     disciplina.add(new Disciplina (4,"Conhece Aluno",55) );
-     disciplina.add(new Disciplina(6,"Conteudos de Materias",8));
+     disciplina.add(new Disciplina(2,"REDES",55 ));
+     disciplina.add(new Disciplina(3,"LPWEB",50 ));
+     disciplina.add(new Disciplina(4,"BANCO DE DADOS",55 ));
+     disciplina.add(new Disciplina (5,"MATEMATICA DISCRETA",55) );
+     disciplina.add(new Disciplina(6,"QUALIDADE DE SOFTWARE",8));
+     disciplina.add(new Disciplina(7,"CAROL - DISCIPLINA",8));
      
-     conteudo.add(new Conteudo(1234,"Polimorfismo"));
-     conteudo.add(new Conteudo(220,"Classes"));
-     conteudo.add(new Conteudo(350,"Interface Gráfica"));
-     conteudo.add(new Conteudo(820,"Herança"));
-     conteudo.add(new Conteudo(900,"Conhecer Aluno especifico"));
-     conteudo.add(new Conteudo(910,"Conhecendo Conteudos de Materias")); 
+     conteudo.add(new Conteudo(1,"Polimorfismo e Herança"));
+     conteudo.add(new Conteudo(2,"Linux"));
+     conteudo.add(new Conteudo(3,"PHP e Django"));
+     conteudo.add(new Conteudo(4,"Comandos SQL"));
+     conteudo.add(new Conteudo(5,"Teoria de Conjuntos"));
+     conteudo.add(new Conteudo(6,"CMMI e ISO")); 
+     conteudo.add(new Conteudo(7,"CAROL - CONTEUDO")); 
      
-     alternativa.add(new Alternativa(100,"Classes","Interface","Herança","Polimorfismo","Entidades","C"));
-     alternativa.add(new Alternativa(200,"Ciencia da computação","Engenharia de Software","Sistema de Informação","Direito","Farmacia","B"));
-     alternativa.add(new Alternativa(300,"Listas Encadeadas","Classes","Entidades","Geometria basica","Calculos Proposicionais","A")); 
+ 
+     alternativa.add(new Alternativa(1,"Classes","Interface","Herança","Polimorfismo","Entidades","C"));
+     alternativa.add(new Alternativa(2,"Apaga Diretorio","Cria Diretorio","Mostra Senha do USER"," Lista USER","Reincia o Linux","B"));
+     alternativa.add(new Alternativa(3,"Listas Encadeadas","Classes","Entidades","Geometria basica","Calculos Proposicionais","A")); 
+     alternativa.add(new Alternativa(4,"Carol A","Carol B","Carol C","Carol D","Carol E","C"));
      
-     questao.add(new Questao(10,"Qual o nome que se dar para uma clase que herda outra?",disciplina.get(0),conteudo.get(3),alternativa.get(0)));
-     questao.add(new Questao(20,"Qual Curso que o Riquelmmy Na Batera Cursa?",disciplina.get(2),conteudo.get(4),alternativa.get(1)));
-     questao.add(new Questao(30,"Das Alternativas abaixo qual dos conteudos Possui em Est. de Dados?",disciplina.get(3),conteudo.get(5),alternativa.get(2)));
+     /* ALTERNATIVAS DE LINUX - DISCIPLINA REDES */
+     alternativa.add(new Alternativa(5,"Apaga Diretorio","Cria Diretorio","Mostra Senha do USER"," Cria Diretorios e Arquivos","Reincia o Linux","D"));
+     alternativa.add(new Alternativa(6,"Permissão de Root","Cria Diretorio","Mostra Senha do USER"," Cria Diretorios e Arquivos","Reincia o Linux","A"));
+     alternativa.add(new Alternativa(7,"Mostra espaço em disco usado","Cria Diretorio","Mostra Senha do USER"," Cria Diretorios e Arquivos","Reincia o Linux","A"));
+     alternativa.add(new Alternativa(8,"Mostra espaço em disco usado","Cria Diretorio","Procura arquivo"," Cria Diretorios e Arquivos","Reincia o Linux","C"));
+     alternativa.add(new Alternativa(9,"Mostra espaço em disco usado","Cria Diretorio","Procura arquivo"," Cria Diretorios e Arquivos","Visualizar conteúdo","E"));
+    
      
+     
+     
+     questao.add(new Questao(1,"O que permite que classes compartilhem atributos e métodos?",disciplina.get(0),conteudo.get(0),alternativa.get(0)));
+     questao.add(new Questao(2,"O que o comando mkdir faz?",disciplina.get(1),conteudo.get(1),alternativa.get(1)));
+     questao.add(new Questao(3,"Das Alternativas abaixo qual dos conteudos Possui em Est. de Dados?",disciplina.get(3),conteudo.get(5),alternativa.get(2)));
+     questao.add(new Questao(4,"Questões CAROL TESTE?",disciplina.get(6),conteudo.get(5),alternativa.get(3)));
+     
+     /* QUESTÕES DE LINUX - DISCIPLINA REDES */
+     questao.add(new Questao(5,"O que o comando ls faz?",disciplina.get(1),conteudo.get(1),alternativa.get(4))); 
+     questao.add(new Questao(6,"O que o comando sudo faz?",disciplina.get(1),conteudo.get(1),alternativa.get(5))); 
+     questao.add(new Questao(7,"O que o comando df faz?",disciplina.get(1),conteudo.get(1),alternativa.get(6))); 
+     questao.add(new Questao(8,"O que o comando grep faz?",disciplina.get(1),conteudo.get(1),alternativa.get(7))); 
+     questao.add(new Questao(9,"O que o comando cat faz?",disciplina.get(1),conteudo.get(1),alternativa.get(8))); 
+     
+      
      turma.add(new Turma(700,disciplina.get(0),"2020/1","2N",professores.get(2)));
      turma.add(new Turma(500,disciplina.get(4),"2020/1","5N",professores.get(1)));
      turma.add(new Turma(400,disciplina.get(3),"2020/1","6N",professores.get(0)));
